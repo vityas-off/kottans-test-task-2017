@@ -9,7 +9,8 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "test": "NODE_ENV=test ava"
+    "test": "NODE_ENV=test ava",
+    "deploy": "git subtree push --prefix dist origin master"
   },
   "dependencies": {
     "axios": "^0.16.2",

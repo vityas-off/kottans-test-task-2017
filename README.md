@@ -1,6 +1,8 @@
 # kottans-test-task-2017
 
-> A Vue.js project
+> Kottans Front End 2017 test assignment - mini GitHub api client.
+
+[DEMO](https://vityas-off.github.io/kottans-test-task-2017)
 
 ## Build Setup
 
@@ -9,13 +11,13 @@
 yarn
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn run dev
 
 # build for production with minification
-npm run build
+yarn run build
 
 # build for production and view the bundle analyzer report
-npm run build --report
-```
+yarn run build --report
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# deploy (push all ./dist content to master)
+yarn run deploy
