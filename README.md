@@ -4,6 +4,8 @@
 
 [DEMO](https://vityas-off.github.io/kottans-test-task-2017)
 
+As for now tested only in chromium-based browsers.
+
 ## Build Setup
 
 ``` bash
