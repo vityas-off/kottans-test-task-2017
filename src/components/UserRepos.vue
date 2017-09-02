@@ -12,7 +12,7 @@
         :emojis='emojis'
         @click.native='repoCardClicked(repo.name)',
         class='list-complete-item',
-        @keyup.enter.native='repoCardClicked(repo.name)',
+        @keyup.enter.native='repoCardClicked(repo.name, true)',
         )
       .nothing-found(v-else) No any repositories much applied filters.
       div(v-if='isLoading') Loading more repos. Please wait.
@@ -68,8 +68,8 @@ export default {
           this.isLoading = false;
         });
     },
-    repoCardClicked(name) {
-      if (window.getSelection().toString()) return;
+    repoCardClicked(name, isKeyboard) {
+      if (window.getSelection().toString() && !isKeyboard) return;
       this.selectedRepo = name;
       this.showModal = true;
     },
