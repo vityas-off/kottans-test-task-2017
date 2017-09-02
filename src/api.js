@@ -62,7 +62,6 @@ export default {
             'description',
             'fork',
             'language',
-            'forked_from',
             'updated_at',
             'stargazers_count',
             'open_issues_count',
