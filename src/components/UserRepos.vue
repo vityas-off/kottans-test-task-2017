@@ -10,7 +10,7 @@
         :info='repo',
         :key='repo.name',
         :emojis='emojis',
-        @click.native='repoCardClicked(repo.name)',
+        @click.native.prevent='repoCardClicked(repo.name)',
         class='list-complete-item',
         @keyup.enter.native='repoCardClicked(repo.name)',
         )
