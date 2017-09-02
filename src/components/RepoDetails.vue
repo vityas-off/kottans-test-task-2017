@@ -6,7 +6,7 @@ div
       div
         a(:href='info.url', target='_blank') Open on GitHub
       div(v-if='info.forkedFrom') Forked from: 
-        a(:href='info.forkedFrom.url') {{ info.forkedFrom.name }}
+        a(:href='info.forkedFrom.url', target='_blank') {{ info.forkedFrom.name }}
       hr
       template(v-if='info.contributors.length')
         h2 Top contributors
