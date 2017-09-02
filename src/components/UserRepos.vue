@@ -9,8 +9,8 @@
         v-for='repo in computedRepos',
         :info='repo',
         :key='repo.name',
-        :emojis='emojis',
-        @click.native.prevent='repoCardClicked(repo.name)',
+        :emojis='emojis'
+        @click.native='repoCardClicked(repo.name)',
         class='list-complete-item',
         @keyup.enter.native='repoCardClicked(repo.name)',
         )
@@ -69,6 +69,7 @@ export default {
         });
     },
     repoCardClicked(name) {
+      if (window.getSelection().toString()) return;
       this.selectedRepo = name;
       this.showModal = true;
     },
