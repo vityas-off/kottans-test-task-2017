@@ -1,12 +1,12 @@
 <template lang='pug'>
-main
-  div(v-if='!isLoading')
-    div(v-if='!error')
-      user-info(:info='info')
-      settings
-      user-repos(:init='repos', :count='info.public_repos || 0')
-    .error(v-else) {{ error.message }}
-  spinner(v-else)
+  main
+    div(v-if='!isLoading')
+      div(v-if='!error')
+        user-info(:info='info')
+        settings
+        user-repos(:init='repos', :count='info.public_repos || 0')
+      .error(v-else) {{ error.message }}
+    spinner(v-else)
 </template>
 
 <script>

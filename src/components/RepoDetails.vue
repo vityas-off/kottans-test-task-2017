@@ -1,45 +1,45 @@
 <template lang='pug'>
-div
-  spinner(v-if='!info')
-  .content(v-else-if='!error')
-    template(v-if='!info.error')
-      div
-        a(:href='info.url', target='_blank') Open on GitHub
-      div(v-if='info.forkedFrom') Forked from: 
-        a(:href='info.forkedFrom.url', target='_blank') {{ info.forkedFrom.name }}
-      hr
-      template(v-if='info.contributors.length')
-        h2 Top contributors
-        table
-          tr
-            th
-            th username
-            th contributions
-          tr(v-for='c in info.contributors')
-            td
-              img(:src='c.avatar_url', :alt='`${c.login} avatar`')
-            td
-              router-link(:to='{ name: "UserDetails", params: { user : c.login } }',
-              v-if='c.login !== $route.params.user') {{ c.login }}
-              span(v-else) {{ c.login }}
-            td {{ c.contributions }}
-              .progress(:style='{ width: c.contributions / totalContribs + "%"}')
-      template(v-if='info.languages.length')
-        h2 Most used languages
-        table
-          tr
-            th Language
-            th Code size
-          tr(v-for='lang in info.languages')
-            td {{ Object.keys(lang)[0] }}
-            td {{ Object.values(lang)[0] | bytesToSI }}
-              .progress(:style='{ width: Object.values(lang)[0] / totalLangs + "%"}')
-      template(v-if='info.pulls.length')
-        h2 Most popular PRs
-        ul
-          li(v-for='pr in info.pulls')
-            a(:href='pr.html_url', target='_blank') {{ pr.title }}
-    .error(v-else) {{ error.message }}
+  div
+    spinner(v-if='!info')
+    .content(v-else-if='!error')
+      template(v-if='!info.error')
+        div
+          a(:href='info.url', target='_blank') Open on GitHub
+        div(v-if='info.forkedFrom') Forked from: 
+          a(:href='info.forkedFrom.url', target='_blank') {{ info.forkedFrom.name }}
+        hr
+        template(v-if='info.contributors.length')
+          h2 Top contributors
+          table
+            tr
+              th
+              th username
+              th contributions
+            tr(v-for='c in info.contributors')
+              td
+                img(:src='c.avatar_url', :alt='`${c.login} avatar`')
+              td
+                router-link(:to='{ name: "UserDetails", params: { user : c.login } }',
+                v-if='c.login !== $route.params.user') {{ c.login }}
+                span(v-else) {{ c.login }}
+              td {{ c.contributions }}
+                .progress(:style='{ width: c.contributions / totalContribs + "%"}')
+        template(v-if='info.languages.length')
+          h2 Most used languages
+          table
+            tr
+              th Language
+              th Code size
+            tr(v-for='lang in info.languages')
+              td {{ Object.keys(lang)[0] }}
+              td {{ Object.values(lang)[0] | bytesToSI }}
+                .progress(:style='{ width: Object.values(lang)[0] / totalLangs + "%"}')
+        template(v-if='info.pulls.length')
+          h2 Most popular PRs
+          ul
+            li(v-for='pr in info.pulls')
+              a(:href='pr.html_url', target='_blank') {{ pr.title }}
+      .error(v-else) {{ error.message }}
 </template>
 
 <script>

@@ -28,7 +28,6 @@ export default {
     height: 120px
   a
     text-decoration: none
-    &:link, &:visited, &:active
     color: #2c3e50
     fill: #2c3e50
     transition: all .4s ease
