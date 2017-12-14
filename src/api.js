@@ -12,6 +12,8 @@ http.interceptors.response.use(null, (err) => {
 
 http.defaults.headers.common.Accept = 'application/vnd.github.mercy-preview+json';
 
+const isRetina = window.devicePixelRatio === 2;
+
 export const filterByKeys = (user, keys) =>
   Object.keys(user).reduce((acc, key) => {
     if (keys.includes(key)) acc[key] = user[key];
@@ -20,6 +22,7 @@ export const filterByKeys = (user, keys) =>
 
 export default {
   async searchUsers(query, avatarSize = 50) {
+    if (isRetina) avatarSize *= 2;
     try {
       const { data } = await http.get(`/search/users?q=${query}`);
       const users = data.items
@@ -88,6 +91,7 @@ export default {
     }
   },
   async getRepoDetails(name, user, avatarSize = 30) {
+    if (isRetina) avatarSize *= 2;
     try {
       const repo = `/repos/${user}/${name}`;
       const [main, contributorsFull, languagesFull, pullsFull] = await Promise.all([

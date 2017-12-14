@@ -1,6 +1,6 @@
 <template lang='pug'>
   section
-    img(:src='info.avatar_url + "&s=160"', :alt='`${info.name}\'s avatar`')
+    img(:src='info.avatar_url + `&s=${isRetina ? 320 : 160}`', :alt='`${info.name}\'s avatar`')
     .wrapper
       h1 {{ info.type }} {{ info.name ? info.name : info.login }}
       .details
@@ -13,9 +13,13 @@
 </template>
 
 <script>
-
 export default {
   name: 'UserInfo',
+  data() {
+    return {
+      isRetina: window.devicePixelRatio === 2,
+    };
+  },
   props: ['info'],
 };
 </script>
