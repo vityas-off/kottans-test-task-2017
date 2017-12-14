@@ -12,7 +12,6 @@
           :class='{invalid: !isValid}',
           aria-label='Search for an github user',
           @input='edited($event.target.value)',
-          :value='initial',
           @focus='hasFocus = true',
           @blur='hasFocus = false',
           v-model='input',
