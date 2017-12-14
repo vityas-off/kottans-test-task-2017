@@ -116,7 +116,7 @@ export default {
     }
   },
   async getEmojis() {
-    if (this.emojis) {
+    if (this.emojis && Object.keys[this.emojis].length > 0) {
       return this.emojis;
     }
     try {
